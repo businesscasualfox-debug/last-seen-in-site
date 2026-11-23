@@ -1,8 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Signed in · Last Seen In</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.png"></head><body><main>
 <div class="kicker">Last Seen In uploader</div>
 <h1>Sign-in received</h1>
-<p>You can close this window and return to the setup. If you were asked to, copy this page's full address from the address bar:</p>
-<p><code id="u"></code></p>
-<script>document.getElementById('u').textContent=location.href.replace(/([?&]code=)[^&]{6}[^&]*/,'$1…');</script>
+<p>If you were asked to, click the button below, then paste into the setup window.</p>
+<p><button id="b" style="font:inherit;font-size:1.1rem;padding:.7em 1.4em;border-radius:8px;border:0;background:#c0392b;color:#fff;cursor:pointer">Copy sign-in address</button> <span id="ok" class="muted"></span></p>
+<script>
+document.getElementById('b').onclick=function(){var u=location.href,ok=document.getElementById('ok');
+(navigator.clipboard?navigator.clipboard.writeText(u):Promise.reject()).then(function(){ok.textContent='Copied. Now paste it into the setup window.';},
+function(){var t=document.createElement('textarea');t.value=u;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();ok.textContent='Copied. Now paste it into the setup window.';});};
+</script>
 <p class="muted">The address contains a one-time code that only works for a few minutes.</p>
 <nav><a href="index.html">Home</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a></nav></main></body></html>
