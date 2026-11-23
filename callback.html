@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Signed in · Last Seen In</title><link rel="stylesheet" href="style.css"><link rel="icon" href="icon.png"></head><body><main>
+<div class="kicker">Last Seen In uploader</div>
+<h1>Sign-in received</h1>
+<p>You can close this window and return to the setup. If you were asked to, copy this page's full address from the address bar:</p>
+<p><code id="u"></code></p>
+<script>document.getElementById('u').textContent=location.href.replace(/([?&]code=)[^&]{6}[^&]*/,'$1…');</script>
+<p class="muted">The address contains a one-time code that only works for a few minutes.</p>
+<nav><a href="index.html">Home</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a></nav></main></body></html>
